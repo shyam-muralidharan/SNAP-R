@@ -14,8 +14,6 @@ QUERY_EXECUTOR = QueryExecutor()
 
 # data=pd.read_csv('"/Users/sujis/Downloads/SNap_Office/CMR.csv',error_bad_lines=False,index_col=False)
 date_converter = lambda d: pd.Timestamp.strptime(d, '%m/%d/%Y').date()
-# data = pd.read_csv('/Users/sujit.venkata/Downloads/Market Share Data.csv', converters={"Data": date_converter})
-# data = pd.read_csv('/Users/bhagath.babu/Projects/data/Market Share Data_V2.csv', converters={"Date": date_converter})
 # data = pd.read_csv('/home/gopal/Downloads/MarketShareData.csv', converters={"Date": date_converter})
 data = pd.read_csv('D:/Compiler/data/A1 Market Share Sample Data.csv')
 
@@ -217,7 +215,6 @@ catalog = [
 
 default_date_flag = 'PERIODDESCRIPTION'
 
-# default_date_flag = 'Date'
 
 qr_li = ["What is the total Sales and units for the last 12 months",
     "Compare sales and units for 2017, 2018 and 2019",
@@ -237,7 +234,9 @@ qr_li = ["What is the total Sales and units for the last 12 months",
 # query = "top 10 manufacturer by revenue for 2018 and 2019"
 # query = "market share by price tier"
 # query = "show me sales by channel for the last 3 years"
+
 query = "Can we get the YoY % change in sales by Category"
+
 def dim_value_mapping_map(df):
     dim_value_mapping = {}
     for col in df.columns:
@@ -273,23 +272,3 @@ print('\n', 'Execution Time:', end - start)
 #     print('\n', 'Execution Time:', end - start)
 #
 # print("Queries and Suggestions: \n{}".format(sugg_dict))
-# # with open("temp.csv","w") as f:
-#     f=csv.DictWriter()
-#     f.writerow(sugg)
-#     f.clos
-# pd.DataFrame(sugg_dict).to_dict("temp.csv")
-# queries = pd.read_csv('/Volumes/D-Drive/queries.csv')
-# # print(queries['queres'])
-# i = 1
-# for each in queries['queries'][:]:
-#     print(i,'\t', each)
-#     query_result = NLP_PARSER.nlp_parser(each, catalog, default_date_flag)
-#     print(query_result)
-#     result = QUERY_PARSER.sql_query_generator(query_result, catalog, default_date_flag)
-#     print(result)
-#     data_res = QUERY_EXECUTOR.query_executor(result, data, default_date_flag, catalog, query_result)
-#     print(data_res)
-#     sugg = SUGGESTIONS.return_suggestions(query_result, catalog, default_date_flag)
-#     print(sugg)
-#     print('\n')
-#     i=i+1
